@@ -21,15 +21,31 @@ public class ServicesTableViewCell: UITableViewCell {
     }
     
     public func setup(service: Service) {
-        let nameString = NSMutableAttributedString(string: service.name + ": ", attributes: [
-            .font: UIFont.systemFont(ofSize: 16, weight: .bold),
-            .foregroundColor: UIColor.label,
-        ])
+        var nameString: NSMutableAttributedString
+        var addressString: NSMutableAttributedString
         
-        let addressString = NSMutableAttributedString(string: service.address + " ", attributes: [
-            .font: UIFont.systemFont(ofSize: 15, weight: .light),
-            .foregroundColor: UIColor.label,
-        ])
+        if #available(iOS 13.0, *) {
+            nameString = NSMutableAttributedString(string: service.name + ": ", attributes: [
+                .font: UIFont.systemFont(ofSize: 16, weight: .bold),
+                .foregroundColor: UIColor.label,
+            ])
+        } else {
+            nameString = NSMutableAttributedString(string: service.name + ": ", attributes: [
+                .font: UIFont.systemFont(ofSize: 16, weight: .bold),
+                .foregroundColor: UIColor.black,
+            ])
+        }
+        
+        if #available(iOS 13.0, *) {
+            addressString = NSMutableAttributedString(string: service.address + " ", attributes: [
+                .font: UIFont.systemFont(ofSize: 15, weight: .light),
+                .foregroundColor: UIColor.black,
+            ])
+        } else {
+            addressString = NSMutableAttributedString(string: service.address + " ", attributes: [
+                .font: UIFont.systemFont(ofSize: 15, weight: .light)
+            ])
+        }
     
         let numberString = NSMutableAttributedString(string: service.number.display, attributes: [
             .font: UIFont.systemFont(ofSize: 15, weight: .medium),
