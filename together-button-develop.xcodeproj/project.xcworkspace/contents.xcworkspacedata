@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../together-button-develop/together-button/Menu.storyboard">
+   </FileRef>
+   <Group
+      location = "group:../together-button-develop/together-button/Model"
+      name = "Model">
+      <FileRef
+         location = "group:Together.swift">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:../together-button-develop/together-button/Resources"
+      name = "Resources">
+      <Group
+         location = "group:Images.xcassets"
+         name = "Images.xcassets">
+         <Group
+            location = "group:ilustracao_main.imageset"
+            name = "ilustracao_main.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:ilustracao_main.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:logo.imageset"
+            name = "logo.imageset">
+            <FileRef
+               location = "group:logo.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+   </Group>
+   <Group
+      location = "group:../together-button-develop/together-button/View"
+      name = "View">
+      <FileRef
+         location = "group:MenuViewController.swift">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "self:together-button-develop.xcodeproj">
+   </FileRef>
+</Workspace>
