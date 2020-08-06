@@ -1,3 +1,11 @@
+//
+//  HelpViewController.swift
+//  together-button-develop
+//
+//  Created by otavio on 06/08/20.
+//  Copyright © 2020 together. All rights reserved.
+//
+
 import UIKit
 import ContactsUI
 
@@ -10,12 +18,28 @@ public class MenuViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        contentView.layer.cornerRadius = 40.0
+        self.setupLayout()
+    }
+    
+    private func setupLayout() {
+        self.setupContentViewLayout()
+        self.setupActionButtonsLayout()
+    }
+    
+    private func setupContentViewLayout() {
         contentView.clipsToBounds = true
-
-        leftButton.layer.cornerRadius = leftButton.frame.size.height * 0.5
-        rightButton.layer.cornerRadius = rightButton.frame.size.height * 0.5
+        contentView.layer.cornerRadius = 35
+        contentView.layer.maskedCorners = [
+            .layerMaxXMinYCorner,
+            .layerMinXMinYCorner,
+        ]
+    }
+    
+    private func setupActionButtonsLayout() {
+        leftButton.clipsToBounds = true
+        leftButton.layer.cornerRadius = leftButton.frame.size.height * 0.35
+        rightButton.clipsToBounds = true
+        rightButton.layer.cornerRadius = rightButton.frame.size.height * 0.35
     }
     
     
@@ -24,17 +48,11 @@ public class MenuViewController: UIViewController {
     }
     
     @IBAction func onLeftButton(_ sender: Any) {
-        self.makeAPhoneCall(to: "180")
+        self.performSegue(withIdentifier: "SegueHelp", sender: nil)
     }
     
     @IBAction func onRightButton(_ sender: Any) {
         self.present(CNContactPickerViewController(), animated: true, completion: nil)
-    }
-    
-    
-    func makeAPhoneCall(to number: String)  {
-        let url: NSURL = URL(string: "TEL://180")! as NSURL
-        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
     }
     
 }
